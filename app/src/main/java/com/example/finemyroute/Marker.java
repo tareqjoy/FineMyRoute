@@ -3,29 +3,31 @@ package com.example.finemyroute;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.google.android.gms.maps.model.LatLng;
+
 public class Marker {
     private double Longitude;
     private String tag;
     private double Latitude;
 
-    Marker(double Longitude, double Latitude) {
+    Marker(double Latitude, double Longitude) {
         this.Longitude = Longitude;
         this.Latitude = Latitude;
     }
 
-    Marker(String tag, double Longitude, double Latitude) {
+    Marker(String tag, double Latitude, double Longitude) {
         this.tag = tag;
         this.Longitude = Longitude;
         this.Latitude = Latitude;
     }
 
-    Marker(String Longitude, String Latitude) {
+    Marker(String Latitude, String Longitude) {
         this.Longitude = Double.valueOf(Longitude);
         this.Latitude = Double.valueOf(Latitude);
     }
 
 
-    Marker(String tag, String Longitude, String Latitude) {
+    Marker(String tag, String Latitude, String Longitude) {
         this.tag = tag;
         try {
             this.Longitude = Double.valueOf(Longitude);
@@ -68,11 +70,15 @@ public class Marker {
     @NonNull
     @Override
     public String toString() {
-        return "Long: " + String.valueOf(Longitude) + " Lat: " + String.valueOf(Latitude);
+        return "Tag: " + tag + " Long: " + String.valueOf(Longitude) + " Lat: " + String.valueOf(Latitude);
     }
 
     public String getTag() {
         return tag;
+    }
+
+    public LatLng getLatLng() {
+        return new LatLng(Latitude, Longitude);
     }
 
     public void setTag(String tag) {
