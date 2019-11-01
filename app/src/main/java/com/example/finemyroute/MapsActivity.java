@@ -60,7 +60,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mapFragment.getMapAsync(this);
 
 
-
+        RouteDhakaReader routeDhakaReader = new RouteDhakaReader(this);
+        routeDhakaReader.readData(24.3745,88.6042);
     }
 
     public boolean isPermissionGranted(String permission, final int REQ_CODE) {
@@ -161,6 +162,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         }
     }
+
+
 
     private String getUrl(LatLng origin, LatLng dest, String directionMode) {
         // Origin of route
