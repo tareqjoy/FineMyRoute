@@ -58,7 +58,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
-
+        double[][] obj  = {{-112.2549277039738, 36.08117083492122,0},{-112.2552505069063,36.08260761307279,0}};
+         new CreateKML(obj).execute();
 
         RouteDhakaReader routeDhakaReader = new RouteDhakaReader(this);
         routeDhakaReader.readData(24.3745,88.6042);
