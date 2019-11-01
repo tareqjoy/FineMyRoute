@@ -60,7 +60,8 @@ public class CreateKML extends AsyncTask<Void,Void,Void> {
             bufferedReader.close();
 
             for (int i = 0 ; i < cordinate[0].length ; i++){
-               writer.append(String.valueOf(cordinate[i][0])+','+String.valueOf(cordinate[i][1])+",0\n");
+
+               writer.append(cordinate[i][0]+","+cordinate[i][1]+",0");
             }
             writer.append("</coordinates>\n" +
                     "      </LineString>\n" +
