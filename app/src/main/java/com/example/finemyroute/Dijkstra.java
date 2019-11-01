@@ -18,9 +18,11 @@ public class Dijkstra extends AsyncTask<Void,Void, String[]> {
     private PriorityQueue<Node> pq;
     private int V; // vertices
     List<List<Node>> adj;
-    int src;
+    Marker src;
     String[] string;
-    Dijkstra(List<List<Node> > adj, int src, int V){
+
+
+    Dijkstra(List<List<Node> > adj, Marker src,Marker V){
         this.adj = adj;
         this.src = src;
         this.V = V;

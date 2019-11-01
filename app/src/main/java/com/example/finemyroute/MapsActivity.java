@@ -36,7 +36,7 @@ import java.util.List;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, LocationListener {
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, TaskLoadedCallback {
+
 
     private final int REQ_READ_EXT = 1;
     private GoogleMap mMap;
@@ -60,25 +60,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mapFragment.getMapAsync(this);
 
 
-        mk = new CSVReader(getExternalFilesDir("file.csv")).getList();
-
-
-    }
-        adj = new ArrayList<List<Node> >();
-        // Initialize list for every node
-        for (int i = 0; i < V; i++) {
-            List<Node> item = new ArrayList<Node>();
-            adj.add(item);
-        }
-        // Inputs for the DPQ graph
-        adj.get(0).add(new Node(1, 9));
-        adj.get(0).add(new Node(2, 6));
-        adj.get(0).add(new Node(3, 5));
-        adj.get(0).add(new Node(4, 3));
-
-        adj.get(2).add(new Node(1, 2));
-        adj.get(2).add(new Node(3, 4));
-        new Dijkstra(adj,0,V).execute();
 
     }
 
@@ -197,10 +178,4 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         return url;
     }
 
-    @Override
-    public void onTaskDone(Object... values) {
-        if (currentPolyline != null)
-            currentPolyline.remove();
-        currentPolyline = mMap.addPolyline((PolylineOptions) values[0]);
-    }
 }
