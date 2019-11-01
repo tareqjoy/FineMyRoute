@@ -24,24 +24,21 @@ import java.util.List;
 
 public class CreateKML extends AsyncTask<Void,Void,Void> {
     double[][] cordinate;
-    //int rows, col;
-    String line;
+    String line,TAG = "KML file creation";
     CreateKML(double[][] cordinate){
         this.cordinate = cordinate;
-        //rows = cordinate[0].length;
-        //col = cordinate[1].length;
+
     }
 
     @Override
     protected Void doInBackground(Void... voids) {
 
         try {
-
-            //double[][] cordinate;
-            File root = new File(Environment.getExternalStorageDirectory(), "kmlFiles");
+            File root = new File(Environment.getExternalStorageDirectory(), "KmlFiles");
             if (!root.exists()) {
                 root.mkdirs();
             }
+            Log.d(TAG, "doInBackground: folder created!");
             File gpxfile = new File(root, "file.kml");
             FileWriter writer = new FileWriter(gpxfile);
 
