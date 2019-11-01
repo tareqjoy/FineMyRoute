@@ -14,21 +14,21 @@ import java.util.Set;
 public class Dijkstra extends AsyncTask<Void,Void, String[]> {
 
     private int dist[];
-    private Set<Integer> settled;
-    private PriorityQueue<Node> pq;
+    private Set<Marker> settled;
+    private PriorityQueue<Edge> pq;
     private int V; // vertices
-    List<List<Node>> adj;
+    List<List<Edge>> adj;
     Marker src;
     String[] string;
 
 
-    Dijkstra(List<List<Node> > adj, Marker src,Marker V){
+    Dijkstra(List<List<Edge> > adj, Marker src,int V){
         this.adj = adj;
         this.src = src;
         this.V = V;
         dist = new int[V];
-        settled = new HashSet<Integer>();
-        pq = new PriorityQueue<Node>(V, new Node());
+        settled = new HashSet<Marker>();
+        pq = new PriorityQueue<Edge>(V, new Edge());
         string = new String[100];
     }
 

@@ -43,7 +43,7 @@ public class CSVReader {
                 if(list.containsKey(tokens[0])){
                     list.get(tokens[0]).add(new Marker(tokens[0], tokens[1], tokens[2]));
                 }else {
-                    list.put(tokens[0],new ArrayList<Marker>());
+                    list.put(tokens[0],new ArrayList<Marker>());4
                     list.get(tokens[0]).add(new Marker(tokens[0], tokens[1], tokens[2]));
 
                 }

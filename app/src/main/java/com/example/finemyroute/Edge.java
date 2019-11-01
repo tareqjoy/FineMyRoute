@@ -2,33 +2,30 @@ package com.example.finemyroute;
 
 import androidx.annotation.Nullable;
 
-public class Edge {
-    private Marker marker1;
-    private Marker marker2;
-    private double distance;
+public class Edge implements Comparable<Edge> {
+    private Marker marker;
+    private double distance=0;
     private int row;
 
-    public Edge(Marker marker1, Marker marker2, double distance, int row) {
-        this.marker1 = marker1;
-        this.marker2 = marker2;
+    public Edge(Marker marker, double distance, int row) {
+        this.marker = marker;
+       // this.marker2 = marker2;
         this.distance = distance;
         this.row = row;
     }
 
-    public Marker getMarker1() {
-        return marker1;
+    public Marker getMarker() {
+        return marker;
     }
 
-    public void setMarker1(Marker marker1) {
-        this.marker1 = marker1;
+    public Edge(){
+
     }
 
-    public Marker getMarker2() {
-        return marker2;
-    }
 
-    public void setMarker2(Marker marker2) {
-        this.marker2 = marker2;
+
+    public void setMarker(Marker marker) {
+        this.marker = marker;
     }
 
     public double getDistance() {
@@ -55,6 +52,12 @@ public class Edge {
             return false;
         }
         Edge temp = (Edge) obj;
-        return ((marker1.equals(temp.getMarker1()) && marker2.equals(temp.getMarker2())) || (marker1.equals(temp.getMarker2()) && marker2.equals(temp.getMarker1())));
+        return ((marker.equals(temp.getMarker()) && this.distance==((Edge) obj).getDistance()));
+    }
+
+    @Override
+    public int compareTo(Edge edge) {
+      //  return Double.compare(distance - edge.)
+        return Double.compare(this.distance , edge.getDistance());
     }
 }
